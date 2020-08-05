@@ -60,6 +60,9 @@ class KBinXML():
         return etree.tostring(self.xml_doc, pretty_print=True,
             encoding=XML_ENCODING, xml_declaration=True).decode(XML_ENCODING)
 
+    def to_bytes(self):
+        return etree.tostring(self.xml_doc)
+
     def from_text(self, input):
         self.xml_doc = etree.parse(BytesIO(input)).getroot()
         self.encoding = XML_ENCODING
